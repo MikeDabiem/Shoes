@@ -4,24 +4,28 @@
     font-style: normal;
     font-weight: normal;
 }
+
 @font-face {
     font-family: 'Montserrat';
     src: url('../fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
     font-style: normal;
     font-weight: bold;
 }
+
 @font-face {
     font-family: 'Montserrat';
     src: url('../fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
     font-style: normal;
     font-weight: medium;
 }
+
 @font-face {
     font-family: 'Montserrat';
     src: url('../fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
     font-style: normal;
     font-weight: 600;
 }
+
 @font-face {
     font-family: 'Druk Wide';
     src: url('FileName.eot');
@@ -29,35 +33,60 @@
     font-style: normal;
     font-weight: medium;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+
 body {
     background: #F5F5F5;
 }
+
+h4 {
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 13px;
+    text-transform: uppercase;
+}
+
+label.option {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    color: #ACACAC;
+}
+
 .wrapper {
     max-width: 1185px;
     margin: 0 auto;
 }
+
 .catalog {
     display: flex;
 }
+
 .catalog__filter {
     max-width: 232px;
     background: #fff;
     padding: 40px 0;
 }
+
 .catalog__filter>section {
     padding: 0 30px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: #EAEAEA;
 }
+
 .catalog__filter-header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .filter__title {
     display: inline-block;
     font-family: 'Druk Wide';
@@ -66,6 +95,7 @@ body {
     font-size: 22px;
     line-height: 29px;
 }
+
 .filter__clear-btn {
     background: #fff;
     color: #fe7427;
@@ -78,18 +108,17 @@ body {
     max-height: 20px;
     align-self: center;
 }
+
 .filter__choosed {
     width: 100%;
     margin-top: 38px;
     padding-bottom: 9px;
 }
+
 .filter__choosed-title {
-    font-weight: 700;
-    font-size: 11px;
-    line-height: 13px;
-    text-transform: uppercase;
     margin-bottom: 17px;
 }
+
 .choosed__item {
     display: inline-flex;
     align-items: center;
@@ -99,12 +128,14 @@ body {
     padding: 2px 7px 2px 9px;
     margin-bottom: 5px;
 }
+
 .choosed__item-x {
     background: transparent;
     color: #F2F2F2;
     border: none;
     font-size: 10px;
 }
+
 .choosed__item-text {
     font-weight: 600;
     font-size: 9px;
@@ -113,15 +144,44 @@ body {
     letter-spacing: .3px;
     color: #F2F2F2;
 }
-.catalog__filter-pricing {
+
+section.catalog__filter-pricing {
     background: rgba(244, 244, 244, 0.73);
+    padding-top: 23px;
 }
+
+.pricing__title {
+    margin-bottom: 17px;
+}
+
+.pricing__min,
+.pricing__max {
+    display: inline-block;
+    width: 58px;
+    height: 30px;
+    margin-right: 12px;
+    background: #EBEBEB;
+    border: none;
+    border-radius: 5px;
+}
+
+.pricing__range {
+    margin: 20px 0 28px;
+    width: 100%;
+}
+
+section.catalog__filter-gender {
+    padding-top: 23px;
+    padding-bottom: 28px;
+}
+
 .color__select {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     max-width: 175px;
 }
+
 .color__option {
     width: 30px;
     height: 30px;
@@ -129,6 +189,7 @@ body {
     border-radius: 4px;
     position: relative;
 }
+
 .color__option.selected::after {
     content: 'v';
     color: #fff;
@@ -138,52 +199,66 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 #color-red {
     background: #ff0000;
 }
+
 #color-white {
     background: #fff;
 }
+
 #color-grey {
     background: #707070;
 }
+
 #color-yellow {
     background: #ffff00;
 }
+
 #color-orange {
     background: #ff8100;
 }
+
 #color-green {
     background: #00ff00;
 }
+
 #color-black {
     background: #000;
 }
+
 #color-pink {
     background: #ffc0cb;
 }
+
 #color-brown {
     background: #853010;
 }
+
 #color-blue {
     background: #0000ff;
 }
+
 .size__standart-btn {
     background: #fff;
     padding: 5px 15px;
     border: 1px solid #000;
     border-radius: 5px;
 }
+
 .size__standart-btn.selected {
     background: #000;
     color: #fff;
 }
+
 .size__options {
     max-width: 245px;
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
+
 .size__option {
     width: 36px;
     background: grey;
@@ -192,9 +267,11 @@ body {
     text-align: center;
     border-radius: 5px;
 }
+
 .size__option.selected {
     background: orange;
 }
+
 .labels__option {
     background: #fff;
     padding: 5px 10px;
@@ -202,6 +279,7 @@ body {
     border-radius: 5px;
     color: orange;
 }
+
 .labels__option.selected {
     background: orange;
     color: #fff;
