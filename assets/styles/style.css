@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #F5F5F5;
+}
+.wrapper {
+    max-width: 1185px;
+    margin: 0 auto;
+}
+.catalog {
+    display: flex;
+}
+.catalog__filter {
+    max-width: 232px;
+    background: #fff;
+    padding: 40px 30px;
+}
+.catalog__filter-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.filter__title {
+    display: inline-block;
+    font-family: 'Druk Wide';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 29px;
+}
+.filter__clear-btn {
+    background: #fff;
+    color: #fe7427;
+    border: 1px solid #fe7427;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-weight: 500;
+    font-size: 9px;
+    margin: 0 0 0 auto;
+    max-height: 20px;
+    align-self: center;
+}
+.filter__choosed {
+    width: 100%;
+    margin-top: 38px;
+}
+.filter__choosed-title {
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 13px;
+    text-transform: uppercase;
+}
+.choosed__item {
+    display: inline-block;
+    background: #2C2929;
+    border-radius: 19px;
+}
+
+.color__select {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 175px;
+}
+.color__option {
+    width: 30px;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    position: relative;
+}
+.color__option.selected::after {
+    content: 'v';
+    color: #fff;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#color-red {
+    background: #ff0000;
+}
+#color-white {
+    background: #fff;
+}
+#color-grey {
+    background: #707070;
+}
+#color-yellow {
+    background: #ffff00;
+}
+#color-orange {
+    background: #ff8100;
+}
+#color-green {
+    background: #00ff00;
+}
+#color-black {
+    background: #000;
+}
+#color-pink {
+    background: #ffc0cb;
+}
+#color-brown {
+    background: #853010;
+}
+#color-blue {
+    background: #0000ff;
+}
+.size__standart-btn {
+    background: #fff;
+    padding: 5px 15px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+.size__standart-btn.selected {
+    background: #000;
+    color: #fff;
+}
+.size__options {
+    max-width: 245px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.size__option {
+    width: 36px;
+    background: grey;
+    padding: 5px;
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+}
+.size__option.selected {
+    background: orange;
+}
+.labels__option {
+    background: #fff;
+    padding: 5px 10px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    color: orange;
+}
+.labels__option.selected {
+    background: orange;
+    color: #fff;
+}

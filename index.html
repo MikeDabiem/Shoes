@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoes Store</title>
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="catalog">
+            <div class="catalog__filter">
+                <section class="catalog__filter-header">
+                    <h2 class="filter__title">Filter</h2>
+                    <button class="filter__clear-btn">Clear Filter</button>
+                    <div class="filter__choosed">
+                        <h4 class="filter__choosed-title">You choosed</h4>
+                        <div class="choosed__item">
+                            <span class="choosed__item-text">Men</span>
+                            <button class="choosed__item-x">x</button>
+                        </div>
+                        <div class="choosed__item">
+                            <span class="choosed__item-text">Sport shoes</span>
+                            <button class="choosed__item-x">x</button>
+                        </div>
+                        <div class="choosed__item">
+                            <span class="choosed__item-text">Sport shoes</span>
+                            <button class="choosed__item-x">x</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="catalog__filter-pricing">
+                    <h4 class="pricing__title">Pricing</h4>
+                    <input type="text" class="pricing__min">
+                    <input type="text" class="pricing__max">
+                    <input type="range" class="pricing__range">
+                </section>
+                <section class="catalog__filter-gender">
+                    <h4 class="gender__title">Gender</h4>
+                    <div class="gender__option">
+                        <label for="gender-all" class="gender__option-label">For all</label>
+                        <input type="checkbox" name="gender-all" id="gender-all" class="gender__option-check">
+                    </div>
+                    <div class="gender__option">
+                        <label for="gender-men" class="gender__option-label">For men</label>
+                        <input type="checkbox" name="gender-men" id="gender-men" class="gender__option-check">
+                    </div>
+                    <div class="gender__option">
+                        <label for="gender-women" class="gender__option-label">For women</label>
+                        <input type="checkbox" name="gender-women" id="gender-women" class="gender__option-check">
+                    </div>
+                    <div class="gender__option">
+                        <label for="gender-children" class="gender__option-label">For children</label>
+                        <input type="checkbox" name="gender-children" id="gender-children" class="gender__option-check">
+                    </div>
+                </section>
+                <section class="catalog__filter-peculiarities">
+                    <h4 class="peculiarities__title">Peculiarities</h4>
+                    <div class="peculiarities__option">
+                        <label for="peculiarities-outdoor" class="peculiarities__option-label">Outdoor shoes</label>
+                        <input type="checkbox" name="peculiarities-outdoor" id="peculiarities-outdoor" class="peculiarities__option-check">
+                    </div>
+                    <div class="peculiarities__option">
+                        <label for="peculiarities-classic" class="peculiarities__option-label">Classic shoes</label>
+                        <input type="checkbox" name="peculiarities-classic" id="peculiarities-classic" class="peculiarities__option-check">
+                    </div>
+                    <div class="peculiarities__option">
+                        <label for="peculiarities-sport" class="peculiarities__option-label">Sport shoes</label>
+                        <input type="checkbox" name="peculiarities-sport" id="peculiarities-sport" class="peculiarities__option-check">
+                    </div>
+                    <div class="peculiarities__option">
+                        <label for="peculiarities-casual" class="peculiarities__option-label">Casual shoes</label>
+                        <input type="checkbox" name="peculiarities-casual" id="peculiarities-casual" class="peculiarities__option-check">
+                    </div>
+                    <div class="peculiarities__option">
+                        <label for="peculiarities-run" class="peculiarities__option-label">Run shoes</label>
+                        <input type="checkbox" name="peculiarities-run" id="peculiarities-run" class="peculiarities__option-check">
+                    </div>
+                    <div class="peculiarities__option">
+                        <label for="peculiarities-football" class="peculiarities__option-label">Football shoes</label>
+                        <input type="checkbox" name="peculiarities-football" id="peculiarities-football" class="peculiarities__option-check">
+                    </div>
+                    <div class="peculiarities__option">
+                        <label for="peculiarities-tennis" class="peculiarities__option-label">Tennis shoes</label>
+                        <input type="checkbox" name="peculiarities-tennis" id="peculiarities-tennis" class="peculiarities__option-check">
+                    </div>
+                    <div class="peculiarities__option">
+                        <label for="peculiarities-skateboard" class="peculiarities__option-label">Skateboard shoes</label>
+                        <input type="checkbox" name="peculiarities-skateboard" id="peculiarities-skateboard" class="peculiarities__option-check">
+                    </div>
+                </section>
+                <section class="catalog__filter-color">
+                    <h4 class="color__title">Colors</h4>
+                    <div class="color__select">
+                        <div id="color-red" class="color__option"></div>
+                        <div id="color-white" class="color__option"></div>
+                        <div id="color-grey" class="color__option"></div>
+                        <div id="color-yellow" class="color__option"></div>
+                        <div id="color-orange" class="color__option"></div>
+                        <div id="color-green" class="color__option"></div>
+                        <div id="color-black" class="color__option selected"></div>
+                        <div id="color-pink" class="color__option"></div>
+                        <div id="color-brown" class="color__option"></div>
+                        <div id="color-blue" class="color__option selected"></div>
+                    </div>
+                </section>
+                <section class="catalog__filter-size">
+                    <h4 class="size__title">Size</h4>
+                    <div class="size__standarts">
+                        <button class="size__standart-btn selected">UA</button>
+                        <button class="size__standart-btn">EU</button>
+                        <button class="size__standart-btn">UK</button>
+                    </div>
+                    <div class="size__options">
+                        <button class="size__option">22</button>
+                        <button class="size__option">22.5</button>
+                        <button class="size__option">23</button>
+                        <button class="size__option">23.5</button>
+                        <button class="size__option">24</button>
+                        <button class="size__option">24.5</button>
+                        <button class="size__option">25</button>
+                        <button class="size__option">25.5</button>
+                        <button class="size__option selected">26</button>
+                        <button class="size__option">26.5</button>
+                        <button class="size__option">27</button>
+                        <button class="size__option">27.5</button>
+                        <button class="size__option">28</button>
+                        <button class="size__option">28.5</button>
+                        <button class="size__option">29</button>
+                        <button class="size__option">29.5</button>
+                        <button class="size__option">30</button>
+                        <button class="size__option">30.5</button>
+                    </div>
+                </section>
+                <div class="catalog__filter-labels">
+                    <button class="labels__option selected">Novelties</button>
+                    <button class="labels__option">Sale</button>
+                </div>
+            </div>
+            <div class="catalog__showcase">
+                <div class="sort"></div>
+                <div class="showcase__items">
+                    <div class="showcase__items-item">
+                        <div class="item__thumb">
+                            <img src="#" alt="sneaker">
+                        </div>
+                        <h3 class="item__title"></h3>
+                        <p class="item__price"></p>
+                        <button class="item__view-btn"></button>
+                        <div class="item__heart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__pagination">
+                <button class="pagination__item">1</button>
+                <button class="pagination__item">2</button>
+                <button class="pagination__item selected">3</button>
+                <button class="pagination__item">...</button>
+                <button class="pagination__item">16</button>
+            </div>
+        </div>
+    </div>
+    <script src="assets/scripts/script.js"></script>
+</body>
+</html>
