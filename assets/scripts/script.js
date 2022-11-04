@@ -4,15 +4,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const rangeMax = document.querySelector('#pricing__range-max');
     const priceMin = document.querySelector('.pricing__min');
     const priceMax = document.querySelector('.pricing__max');
-    pricingFilter.addEventListener('input', (e) => {
+    pricingFilter.addEventListener('input', () => {
+
         if (e.target) {
             if (e.target.classList.contains('pricing__min')) {
-                rangeMin.value = priceMin.value.slice(1, priceMin.value.length);
+                rangeMin.value = priceMin.value.slice(1);
             }
             if (e.target.classList.contains('pricing__max')) {
-                rangeMax.value = priceMax.value.slice(1, priceMax.value.length);
+                rangeMax.value = priceMax.value.slice(1);
             }
         }
+
+        if (priceMin.value === '$' || priceMin.value === '') {
+            priceMin.value = '$' + 0;
+        }
+        if (priceMax.value === '$' || priceMax.value === '') {
+            priceMax.value = '$' + 0;
+        }
+
         priceMin.value = '$' + rangeMin.value;
         priceMax.value = '$' + rangeMax.value;
         // rangeMax.style.width = 95 - rangeMin.value + '%';

@@ -165,12 +165,13 @@ section.catalog__filter-pricing {
     font-weight: 500;
     font-size: 10px;
     line-height: 12px;
-    color: #2C2929;
+    color: #A8A8A8;
 }
 
 .pricing__min:focus,
 .pricing__max:focus {
     outline: 1px solid #FE7427;
+    color: #2C2929;
 }
 
 .pricing__range {
@@ -492,12 +493,13 @@ section.catalog__filter-size {
     box-shadow: 1px 3px 14px rgba(30, 27, 26, 0.07);
     border-radius: 10px;
     padding: 15px 14px;
-    position: relative;
     transition: all .3s;
+    outline: 1px solid transparent;
 }
 
 .showcase__items-item:hover {
     background: #DFDEDE;
+    outline-color: rgba(209, 203, 203, .7);
 }
 
 .showcase__items-item:hover .item__title {
@@ -505,7 +507,9 @@ section.catalog__filter-size {
 }
 
 .item__thumb {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 190px;
     height: 190px;
     background: #F2F2F2;
@@ -514,9 +518,7 @@ section.catalog__filter-size {
 }
 
 .item__thumb img {
-    position: absolute;
-    top: 37px;
-    left: 0;
+    max-width: 115%;
 }
 
 .item__title {
