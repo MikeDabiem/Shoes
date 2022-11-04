@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortSection = document.querySelector('.sort');
     const sortSelect = document.querySelector('.sort__select');
     const sortList = document.querySelector('.sort__list');
-    const sortItem = document.querySelectorAll('.sort__list-item');
+    const sortItem = document.querySelectorAll('.sort__list-item')
     sortSection.addEventListener('click', (e) => {
         sortSelect.classList.toggle('active');
         sortList.classList.toggle('active');
@@ -58,7 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         if (e.target && e.target.classList.contains('sort__list-item')) {
-            sortSelect.innerHTML = e.target.dataset.value;
+            sortItem.forEach(item => {
+                if (item.classList.contains('selected')) {
+                    item.classList.remove('selected');
+                }
+            });
+            e.target.classList.add('selected');
+            sortSelect.innerHTML = e.target.innerHTML;
         }
     });
 });

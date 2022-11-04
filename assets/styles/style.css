@@ -69,6 +69,7 @@ label.option-label {
 .catalog {
     display: flex;
     gap: 17px;
+    margin-bottom: 100px;
 }
 
 .catalog__filter {
@@ -76,6 +77,7 @@ label.option-label {
     background: #fff;
     padding: 40px 0;
     box-shadow: 2px 4px 18px rgba(30, 27, 26, 0.07);
+    border-radius: 0 0 10px 10px;
 }
 
 .catalog__filter>section {
@@ -159,11 +161,46 @@ section.catalog__filter-pricing {
     background: #EBEBEB;
     border: none;
     border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #2C2929;
+}
+
+.pricing__min:focus,
+.pricing__max:focus {
+    outline: 1px solid #FE7427;
 }
 
 .pricing__range {
     margin: 20px 0 28px;
     width: 100%;
+    height: 2px;
+    background: #CDCDCD;
+    border-radius: 1px;
+    position: relative;
+}
+
+#pricing__range-min,
+#pricing__range-max {
+    width: 100%;
+    position: absolute;
+    top: -5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+}
+
+#pricing__range-min::-webkit-slider-thumb,
+#pricing__range-max::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 3px solid #FE7427;
+    border-radius: 50%;
 }
 
 section.catalog__filter-gender {
@@ -393,11 +430,15 @@ section.catalog__filter-size {
 .sort__list {
     display: none;
     position: absolute;
-    width: 100%;
-    margin-top: 3px;
+    right: 0;
+    min-width: 205px;
+    margin-top: 8px;
     border: 1px solid #FE7427;
     border-radius: 7px;
     overflow: hidden;
+    z-index: 1;
+    background: #fff;
+    padding: 14px 0;
 }
 
 .sort__list.active {
@@ -405,8 +446,21 @@ section.catalog__filter-size {
 }
 
 .sort__list-item {
-    padding: 0 16px;
     list-style-type: none;
+    color: #BDBDBD;
+    position: relative;
+    padding: 3px 36px 3px 26px;
+}
+
+.sort__list-item.selected {
+    color: #29282D;
+}
+
+.sort__list-item.selected::after {
+    content: url(../svg/check.svg);
+    position: absolute;
+    top: 0;
+    right: 26px;
 }
 
 .sort__list-item:hover {
@@ -414,9 +468,9 @@ section.catalog__filter-size {
 }
 
 .showcase__items {
-    flex: 1 0 auto;
     display: flex;
     flex-wrap: wrap;
+    gap: 18px;
     margin-top: 21px;
 }
 
@@ -428,13 +482,19 @@ section.catalog__filter-size {
     border-radius: 10px;
     padding: 15px 14px;
     position: relative;
+    transition: all .3s;
 }
 
 .showcase__items-item:hover {
     background: #DFDEDE;
 }
 
+.showcase__items-item:hover .item__title {
+    color: #53504E;
+}
+
 .item__thumb {
+    display: block;
     width: 190px;
     height: 190px;
     background: #F2F2F2;
@@ -449,8 +509,15 @@ section.catalog__filter-size {
 }
 
 .item__title {
+    display: block;
     min-height: 36px;
     margin-bottom: 13px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #797776;
 }
 
 .item__price {
@@ -462,15 +529,68 @@ section.catalog__filter-size {
     margin-bottom: 25px;
 }
 
-.item__view-btn {
+.item__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item__buttons-view {
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.4px;
     color: #2C2929;
+    padding: 9px 24px;
+    border: 1px solid #2C2929;
+    border-radius: 8px;
+    transition: all .3s;
+}
+
+.item__buttons-view:hover {
+    background: #2C2929;
+    color: #fff;
+}
+
+.item__buttons-heart {
+    visibility: hidden;
+    position: relative;
+    width: 28px;
+    height: 24px;
+}
+
+.item__buttons-heart::after {
+    content: url(../svg/heart.svg);
+    position: absolute;
+    inset: 0;
+    visibility: visible;
+}
+
+.item__buttons-heart:checked::after {
+    content: url(../svg/heartred.svg);
 }
 
 .catalog__pagination {
-    justify-self: end;
+    margin: auto 0 0;
+    padding-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.pagination__item {
+    width: 33px;
+    height: 33px;
+    background: rgba(227, 227, 227, 0.9);
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #575554;
+}
+
+.pagination__item.selected {
+    background: #FE7427;
+    color: #fff;
 }
