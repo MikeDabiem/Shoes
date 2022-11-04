@@ -184,12 +184,23 @@ section.catalog__filter-pricing {
 
 #pricing__range-min,
 #pricing__range-max {
-    width: 100%;
-    position: absolute;
+    /* position: absolute; */
     top: -5px;
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
+}
+
+#pricing__range-min {
+    width: 100%;
+    left: 0;
+    background: red;
+}
+
+#pricing__range-max {
+    width: 100%;
+    right: 0;
+    background: blue;
 }
 
 #pricing__range-min::-webkit-slider-thumb,

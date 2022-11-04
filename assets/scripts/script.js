@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const pricingFilter = document.querySelector('.catalog__filter-pricing');
+    const rangeMin = document.querySelector('#pricing__range-min');
+    const rangeMax = document.querySelector('#pricing__range-max');
+    const priceMin = document.querySelector('.pricing__min');
+    const priceMax = document.querySelector('.pricing__max');
+    pricingFilter.addEventListener('input', (e) => {
+        if (e.target) {
+            if (e.target.classList.contains('pricing__min')) {
+                rangeMin.value = priceMin.value.slice(1, priceMin.value.length);
+            }
+            if (e.target.classList.contains('pricing__max')) {
+                rangeMax.value = priceMax.value.slice(1, priceMax.value.length);
+            }
+        }
+        priceMin.value = '$' + rangeMin.value;
+        priceMax.value = '$' + rangeMax.value;
+        // rangeMax.style.width = 95 - rangeMin.value + '%';
+    });
+
     const checkbox = document.querySelectorAll('.checkbox');
     checkbox.forEach(item => {
         item.addEventListener('change', () => {
