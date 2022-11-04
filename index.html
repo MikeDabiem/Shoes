@@ -140,12 +140,13 @@
             </div>
             <div class="catalog__showcase">
                 <div class="sort">
-                    <select id="sort__select">
-                        <option class="sort__select-item" value="0">Sort by</option>
-                        <option class="sort__select-item" value="1">Price</option>
-                        <option class="sort__select-item" value="2">Name</option>
-                        <option class="sort__select-item" value="3">Popularity</option>
-                    </select>
+                    <div class="sort__select">Sort by</div>
+                    <ul class="sort__list">
+                        <li class="sort__list-item" data-value="Sort by">None</li>
+                        <li class="sort__list-item" data-value="Sort by price">Price</li>
+                        <li class="sort__list-item" data-value="Sort by name">Name</li>
+                        <li class="sort__list-item" data-value="Sort by popular">Popularity</li>
+                    </ul>
                 </div>
                 <div class="showcase__items">
                     <div class="showcase__items-item">
@@ -154,7 +155,7 @@
                         </div>
                         <h3 class="item__title"></h3>
                         <p class="item__price"></p>
-                        <button class="item__view-btn"></button>
+                        <a href="#" class="item__view-btn">View item</a>
                         <div class="item__heart"></div>
                     </div>
                 </div>

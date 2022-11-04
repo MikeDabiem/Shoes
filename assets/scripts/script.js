@@ -42,13 +42,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const sortSelect = document.querySelector('.sort');
-    sortSelect.addEventListener('click', () => {
+    const sortSection = document.querySelector('.sort');
+    const sortSelect = document.querySelector('.sort__select');
+    const sortList = document.querySelector('.sort__list');
+    const sortItem = document.querySelectorAll('.sort__list-item');
+    sortSection.addEventListener('click', (e) => {
         sortSelect.classList.toggle('active');
-        window.addEventListener('click', (e) => {
-            if (!e.target.closest('.sort')) {
-                sortSelect.classList.remove('active');
-            }
-        })
+        sortList.classList.toggle('active');
+        if (sortSelect.classList.contains('active')) {
+            window.addEventListener('click', (e) => {
+                if (!e.target.closest('.sort')) {
+                    sortSelect.classList.remove('active');
+                    sortList.classList.remove('active');
+                }
+            });
+        }
+        if (e.target && e.target.classList.contains('sort__list-item')) {
+            sortSelect.innerHTML = e.target.dataset.value;
+        }
     });
 });

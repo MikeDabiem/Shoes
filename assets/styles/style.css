@@ -75,6 +75,7 @@ label.option-label {
     max-width: 232px;
     background: #fff;
     padding: 40px 0;
+    box-shadow: 2px 4px 18px rgba(30, 27, 26, 0.07);
 }
 
 .catalog__filter>section {
@@ -353,9 +354,24 @@ section.catalog__filter-size {
     display: inline-block;
     align-self: end;
     position: relative;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 28px;
+    color: #29282D;
+    user-select: none;
+    margin-top: 30px;
 }
 
-.sort::after {
+.sort__select {
+    padding: 4px 16px;
+    width: 167px;
+    border: 1px solid #FE7427;
+    border-radius: 7px;
+    outline: none;
+    background: transparent;
+}
+
+.sort__select::after {
     content: '';
     position: absolute;
     top: 13px;
@@ -369,29 +385,90 @@ section.catalog__filter-size {
     transition: all .2s;
 }
 
-.sort.active::after {
+.sort__select.active::after {
     transform: rotate(225deg);
     top: 17px;
 }
 
-#sort__select {
-    padding: 4px 16px;
-    width: 167px;
+.sort__list {
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin-top: 3px;
     border: 1px solid #FE7427;
     border-radius: 7px;
-    outline: none;
-    background: transparent;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 28px;
-    color: #29282D;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    overflow: hidden;
+}
+
+.sort__list.active {
+    display: block;
+}
+
+.sort__list-item {
+    padding: 0 16px;
+    list-style-type: none;
+}
+
+.sort__list-item:hover {
+    background: #ebebeb;
 }
 
 .showcase__items {
     flex: 1 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 21px;
+}
+
+.showcase__items-item {
+    width: 220px;
+    height: 355px;
+    background: #FFFFFF;
+    box-shadow: 1px 3px 14px rgba(30, 27, 26, 0.07);
+    border-radius: 10px;
+    padding: 15px 14px;
+    position: relative;
+}
+
+.showcase__items-item:hover {
+    background: #DFDEDE;
+}
+
+.item__thumb {
+    width: 190px;
+    height: 190px;
+    background: #F2F2F2;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.item__thumb img {
+    position: absolute;
+    top: 37px;
+    left: 0;
+}
+
+.item__title {
+    min-height: 36px;
+    margin-bottom: 13px;
+}
+
+.item__price {
+    min-height: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 13px;
+    color: #21201F;
+    margin-bottom: 25px;
+}
+
+.item__view-btn {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    color: #2C2929;
 }
 
 .catalog__pagination {
