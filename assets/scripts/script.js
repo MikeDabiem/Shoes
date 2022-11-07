@@ -5,10 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceMin = document.querySelector('.pricing__min');
     const priceMax = document.querySelector('.pricing__max');
 
-    function rangeMaxWidth() {
-        rangeMax.style.width = `calc(${100 - (rangeMin.value / rangeMin.max * 100)}% - ${12 - (12 / 50 * (rangeMin.value / rangeMin.max * 100))}px)`;
+    function rangeWidth() {
+        rangeMax.style.width = `calc(${100 - (rangeMin.value / rangeMax.max * 100)}% - ${12 - (12 / 50 * (rangeMin.value / rangeMax.max * 100))}px)`;
+        rangeMin.style.width = `calc(${rangeMax.value / rangeMax.max * 100}% + ${12 - (12 / 50 * (rangeMax.value / rangeMax.max * 100))}px`;
     }
-    rangeMaxWidth();
+    rangeWidth();
+    rangeMin.max = rangeMax.value;
     rangeMax.min = rangeMin.value;
 
     pricingFilter.addEventListener('change', (e) => {
@@ -26,13 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 rangeMin.value = priceMin.value.slice(1);
                 rangeMax.min = rangeMin.value;
-                rangeMaxWidth();
+                rangeWidth();
             }
             if (e.target.classList.contains('pricing__max')) {
                 if (priceMax.value < priceMin.value) {
                     priceMax.value = '$' + (Number(priceMin.value.slice(1)) + 1);
                 }
                 rangeMax.value = priceMax.value.slice(1);
+                rangeMin.max = rangeMax.value;
+                rangeWidth();
             }
         }
     });
@@ -49,11 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceMax.value = '$' + rangeMax.value;
                 if (rangeMin.value === rangeMax.value) {
                     rangeMax.value = Number(rangeMax.value) + 1;
+                    rangeMin.max = rangeMax.value;
                 }
             }
             if (e.target === rangeMax) {
                 priceMax.value = '$' + rangeMax.value;
                 priceMax.focus();
+                rangeMin.max = rangeMax.value;
                 if (rangeMax.value === rangeMin.value) {
                     rangeMin.value -= 1;
                     priceMin.value = '$' + rangeMin.value;
@@ -61,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-        rangeMaxWidth();
+        rangeWidth();
     });
 
     const checkbox = document.querySelectorAll('.checkbox');
@@ -102,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const labelsOption = document.querySelectorAll('.labels__option');
     labelsOption.forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('change', () => {
             item.classList.toggle('selected');
         });
     });
