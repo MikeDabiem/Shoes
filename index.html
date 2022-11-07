@@ -10,7 +10,7 @@
 <body>
     <div class="wrapper">
         <div class="catalog">
-            <div class="catalog__filter">
+            <form class="catalog__filter">
                 <section class="catalog__filter-header">
                     <h2 class="filter__title">Filter</h2>
                     <button class="filter__clear-btn">Clear Filter</button>
@@ -32,11 +32,11 @@
                 </section>
                 <section class="catalog__filter-pricing">
                     <h4 class="pricing__title">Pricing</h4>
-                    <input type="text" class="pricing__min" value="$10">
+                    <input type="text" class="pricing__min" value="$80">
                     <input type="text" class="pricing__max" value="$300">
                     <div class="pricing__range">
-                        <input type="range" min="0" value="30" max="100" id="pricing__range-min">
-                        <input type="range" min="0" value="80" max="100" id="pricing__range-max">
+                        <input type="range" min="0" value="80" max="500" id="pricing__range-min">
+                        <input type="range" min="0" value="300" max="500" id="pricing__range-max">
                     </div>
                 </section>
                 <section class="catalog__filter-gender">
@@ -96,16 +96,16 @@
                 <section class="catalog__filter-color">
                     <h4 class="color__title">Colors</h4>
                     <div class="color__select">
-                        <div id="color-red" class="color__option"></div>
-                        <div id="color-white" class="color__option"></div>
-                        <div id="color-grey" class="color__option"></div>
-                        <div id="color-yellow" class="color__option"></div>
-                        <div id="color-orange" class="color__option"></div>
-                        <div id="color-green" class="color__option"></div>
-                        <div id="color-black" class="color__option"></div>
-                        <div id="color-pink" class="color__option"></div>
-                        <div id="color-brown" class="color__option"></div>
-                        <div id="color-blue" class="color__option"></div>
+                        <label id="color-red-label" class="color__option"><input type="checkbox" id="color-red" name="color-red"></label>
+                        <label id="color-white-label" class="color__option"><input type="checkbox" id="color-white" name="color-white"></label>
+                        <label id="color-grey-label" class="color__option"><input type="checkbox" id="color-grey" name="color-grey"></label>
+                        <label id="color-yellow-label" class="color__option"><input type="checkbox" id="color-yellow" name="color-yellow"></label>
+                        <label id="color-orange-label" class="color__option"><input type="checkbox" id="color-orange" name="color-orange"></label>
+                        <label id="color-green-label" class="color__option"><input type="checkbox" id="color-green" name="color-green"></label>
+                        <label id="color-black-label" class="color__option"><input type="checkbox" id="color-black" name="color-black"></label>
+                        <label id="color-pink-label" class="color__option"><input type="checkbox" id="color-pink" name="color-pink"></label>
+                        <label id="color-brown-label" class="color__option"><input type="checkbox" id="color-brown" name="color-brown"></label>
+                        <label id="color-blue-label" class="color__option"><input type="checkbox" id="color-blue" name="color-blue"></label>
                     </div>
                 </section>
                 <section class="catalog__filter-size">
@@ -140,7 +140,7 @@
                     <button class="labels__option">Novelties</button>
                     <button class="labels__option">Sale</button>
                 </div>
-            </div>
+            </form>
             <div class="catalog__showcase">
                 <div class="sort">
                     <div class="sort__select">Sort by</div>

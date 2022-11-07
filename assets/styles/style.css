@@ -195,15 +195,12 @@ section.catalog__filter-pricing {
 #pricing__range-min {
     width: calc(100% - 12px);
     left: 0;
-    background: red;
 }
 
 #pricing__range-max {
-    width: 50%;
     min-width: 12px;
     max-width: calc(100% - 12px);
     right: 0;
-    background: blue;
 }
 
 #pricing__range-min::-webkit-slider-thumb,
@@ -278,7 +275,11 @@ section.catalog__filter-color {
     position: relative;
 }
 
-.color__option.selected::after {
+.color__option>input {
+    visibility: hidden;
+}
+
+.color__option>input::after {
     content: url('../svg/check-white.svg');
     position: absolute;
     inset: 0;
@@ -288,44 +289,48 @@ section.catalog__filter-color {
     align-items: center;
 }
 
-#color-red {
+.color__option>input:checked::after {
+    visibility: visible;
+}
+
+#color-red-label {
     background: #F42740;
 }
 
-#color-white {
+#color-white-label {
     background: #fff;
     border: 1px solid #B4B4B4;
 }
 
-#color-grey {
+#color-grey-label {
     background: #878C8E;
 }
 
-#color-yellow {
+#color-yellow-label {
     background: #EFE94C;
 }
 
-#color-orange {
+#color-orange-label {
     background: #ff8100;
 }
 
-#color-green {
+#color-green-label {
     background: #53C948;
 }
 
-#color-black {
+#color-black-label {
     background: #2C2929;
 }
 
-#color-pink {
+#color-pink-label {
     background: #FF61E6;
 }
 
-#color-brown {
+#color-brown-label {
     background: #7B4F4F;
 }
 
-#color-blue {
+#color-blue-label {
     background: #283AE1;
 }
 

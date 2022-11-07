@@ -5,13 +5,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceMin = document.querySelector('.pricing__min');
     const priceMax = document.querySelector('.pricing__max');
 
-    pricingFilter.addEventListener('input', (e) => {
+    function rangeMaxWidth() {
+        rangeMax.style.width = `calc(${100 - (rangeMin.value / rangeMin.max * 100)}% - ${12 - (12 / 50 * (rangeMin.value / rangeMin.max * 100))}px)`;
+    }
+    rangeMaxWidth();
+    rangeMax.min = rangeMin.value;
+
+    pricingFilter.addEventListener('change', (e) => {
+        if (priceMin.value === '$') {
+            priceMin.value = '$' + 0;
+        }
+        if (priceMax.value === '$') {
+            priceMax.value = '$' + 0;
+        }
+
         if (e.target) {
             if (e.target.classList.contains('pricing__min')) {
+                if (priceMin.value > priceMax.value) {
+                    priceMin.value = '$' + (priceMax.value.slice(1) - 1);
+                }
                 rangeMin.value = priceMin.value.slice(1);
+                rangeMax.min = rangeMin.value;
+                rangeMaxWidth();
             }
             if (e.target.classList.contains('pricing__max')) {
+                if (priceMax.value < priceMin.value) {
+                    priceMax.value = '$' + (Number(priceMin.value.slice(1)) + 1);
+                }
                 rangeMax.value = priceMax.value.slice(1);
+            }
+        }
+    });
+
+    pricingFilter.addEventListener('input', (e) => {
+        if (e.target) {
+            if (e.target.classList.contains('pricing__min') && e.target.value === '' || e.target.classList.contains('pricing__max') && e.target.value === '') {
+                e.target.value = '$';
             }
             if (e.target === rangeMin) {
                 priceMin.value = '$' + rangeMin.value;
@@ -32,17 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-        
-        if (priceMin.value === '$' || priceMin.value === '') {
-            priceMin.value = '$' + 0;
-        }
-        if (priceMax.value === '$' || priceMax.value === '') {
-            priceMax.value = '$' + 0;
-        }
-
-        
-        // rangeMax.style.width = `calc(${100 - (rangeMin.value / rangeMin.max * 100)}% - 12px)`;
-        rangeMax.style.width = 100 - (rangeMin.value / rangeMin.max * 100) + '%';
+        rangeMaxWidth();
     });
 
     const checkbox = document.querySelectorAll('.checkbox');
@@ -58,12 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const colorOption = document.querySelectorAll('.color__option');
-    colorOption.forEach(item => {
-        item.addEventListener('click', () => {
-            item.classList.toggle('selected');
-        })
-    });
+    // const colorOption = document.querySelectorAll('.color__option');
+    // colorOption.forEach(item => {
+    //     item.addEventListener('click', () => {
+    //         item.classList.toggle('selected');
+    //     })
+    // });
 
     const sizeSection = document.querySelector('.catalog__filter-size');
     const sizeStdBtn = document.querySelectorAll('.size__standart-btn');
