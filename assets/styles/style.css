@@ -68,7 +68,6 @@ label.option-label {
 
 .catalog {
     display: flex;
-    gap: 17px;
     margin-bottom: 100px;
 }
 
@@ -415,6 +414,8 @@ section.catalog__filter-size {
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 0 12px 0 17px;
+    min-height: 100vh;
 }
 
 .sort {
@@ -427,6 +428,10 @@ section.catalog__filter-size {
     color: #29282D;
     user-select: none;
     margin-top: 30px;
+}
+
+.sort__filter {
+    display: none;
 }
 
 .sort__select {
@@ -528,7 +533,7 @@ section.catalog__filter-size {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 190px;
+    width: 100%;
     height: 190px;
     background: #F2F2F2;
     border-radius: 8px;
@@ -604,7 +609,7 @@ section.catalog__filter-size {
 
 .catalog__pagination {
     margin: auto 0 0;
-    padding-top: 20px;
+    padding-top: 43px;
     display: flex;
     gap: 10px;
 }
@@ -624,4 +629,59 @@ section.catalog__filter-size {
 .pagination__item.selected {
     background: #FE7427;
     color: #fff;
+}
+
+@media screen and (max-width: 719px) {
+    .showcase__items-item {
+        width: 166px;
+        height: 269px;
+        padding: 11px 10px;
+        border-radius: 8px;
+    }
+    .item__thumb {
+        height: 146px;
+    }
+    .item__title {
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 19px;
+        min-height: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .item__price {
+        font-size: 12px;
+        line-height: 10px;
+        margin-bottom: 9px;
+    }
+    .item__buttons-view {
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.32px;
+        padding: 6px 15px;
+    }
+    .item__buttons-heart {
+        transform: scale(.72);
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .catalog__filter {
+        position: absolute;
+        left: -100%;
+    }
+    .sort {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+    }
+    .catalog__showcase {
+        padding: 0 13px;
+        align-items: center;
+    }
+    .showcase__items {
+        gap: 14px;
+        margin: 20px auto 0;
+    }
 }

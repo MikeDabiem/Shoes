@@ -83,13 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // const colorOption = document.querySelectorAll('.color__option');
-    // colorOption.forEach(item => {
-    //     item.addEventListener('click', () => {
-    //         item.classList.toggle('selected');
-    //     })
-    // });
-
     const sizeSection = document.querySelector('.catalog__filter-size');
     const sizeStdBtn = document.querySelectorAll('.size__standart-btn');
     sizeSection.addEventListener('click', (e) => {
