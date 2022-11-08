@@ -153,4 +153,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 10);
         }
     });
+
+    const pagination = document.querySelector('.catalog__pagination');
+    const paginBtns = document.querySelectorAll('.pagination__item');
+    pagination.addEventListener('click', (e) => {
+        if (e.target && e.target.classList.contains('pagination__item') && !e.target.classList.contains('dots')) {
+            paginBtns.forEach(item => {
+                if (item.classList.contains('selected')) {
+                    item.classList.remove('selected');
+                }
+            });
+            e.target.classList.add('selected');
+        }
+    });
 });
