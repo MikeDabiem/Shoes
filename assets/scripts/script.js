@@ -114,12 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
         sortSelect.classList.toggle('active');
         sortList.classList.toggle('active');
         if (sortSelect.classList.contains('active')) {
-            window.addEventListener('click', (e) => {
+            const close = (e) => {
                 if (!e.target.closest('.sort')) {
                     sortSelect.classList.remove('active');
                     sortList.classList.remove('active');
+                    window.removeEventListener('click', close);
                 }
-            });
+            }
+            window.addEventListener('click', close);
         }
         if (e.target && e.target.classList.contains('sort__list-item')) {
             sortItem.forEach(item => {
@@ -129,6 +131,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             e.target.classList.add('selected');
             sortSelect.innerHTML = e.target.innerHTML;
+        }
+    });
+
+    const sortFilterBtn = document.querySelector('.sort__filter-btn');
+    const catalog = document.querySelector('.catalog');
+    const catalogFilter = document.querySelector('.catalog__filter');
+    sortFilterBtn.addEventListener('click', () => {
+        catalogFilter.classList.add('active');
+        catalog.classList.add('active');
+        if (catalogFilter.classList.contains('active')) {
+            setTimeout(() => {
+                const close = (e) => {
+                    if (!e.target.closest('.catalog__filter')) {
+                        catalogFilter.classList.remove('active');
+                        catalog.classList.remove('active');
+                        window.removeEventListener('click', close);
+                    }
+                }
+                window.addEventListener('click', close);
+            }, 10);
         }
     });
 });
