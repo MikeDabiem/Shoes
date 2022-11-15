@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sizeSection = document.querySelector('.catalog__filter-size');
     const sizeStdBtn = document.querySelectorAll('.size__standart-btn');
+    sizeStdBtn[0].classList.add('selected');
     sizeSection.addEventListener('click', (e) => {
         if (e.target && e.target.classList.contains('size__standart-btn')) {
             sizeStdBtn.forEach(item => {
