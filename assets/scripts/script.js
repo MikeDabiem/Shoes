@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceMax = document.querySelector('.pricing__max');
 
     function rangeWidth() {
-        rangeMax.style.width = `calc(${100 - (rangeMin.value / rangeMax.max * 100)}% - ${12 - (12 / 50 * (rangeMin.value / rangeMax.max * 100))}px)`;
-        rangeMin.style.width = `calc(${rangeMax.value / rangeMax.max * 100}% + ${12 - (12 / 50 * (rangeMax.value / rangeMax.max * 100))}px`;
+        rangeMin.style.width = `calc(${(rangeMax.value - rangeMin.min) / (rangeMax.max - rangeMin.min) * 100}% + ${12 - (12 / 50 * ((rangeMax.value - rangeMin.min) / (rangeMax.max - rangeMin.min) * 100))}px`;
+        rangeMax.style.width = `calc(${100 - (rangeMin.value - rangeMin.min) / (rangeMax.max - rangeMin.min) * 100}% - ${12 - (12 / 50 * ((rangeMin.value - rangeMin.min) / (rangeMax.max - rangeMin.min) * 100))}px)`;
     }
     rangeWidth();
     rangeMin.max = rangeMax.value;
