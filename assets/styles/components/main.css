@@ -140,3 +140,10 @@ button.pagination__item:hover,
         height: 29px;
     }
 }
+
+@media screen and (max-width: 349px) {
+    .showcase__items {
+        flex-direction: column;
+        align-content: center;
+    }
+}
