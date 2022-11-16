@@ -105,6 +105,7 @@
     text-align: center;
     letter-spacing: .3px;
     color: #F2F2F2;
+    user-select: none;
 }
 
 section.catalog__filter-pricing {
@@ -229,9 +230,9 @@ label.option-label {
     color: #ACACAC;
     transition: all .5s;
 }
-/*****************************************************************************************************/
+
+.option:hover label.option-label,
 label.option-label.checked {
-    /* font-weight: 600; */
     color: #423C3C;
 }
 

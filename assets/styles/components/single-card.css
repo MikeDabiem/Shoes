@@ -108,11 +108,12 @@
     inset: 0;
     visibility: visible;
     transition: all .5s;
+    -webkit-mask-image: url(../../svg/heartred.svg);
 }
 
 .item__buttons-heart:hover::after,
 .item__buttons-heart:checked::after {
-    content: url(../../svg/heartred.svg);
+    background: #EB2A2A;
 }
 
 @media screen and (max-width: 719px) {

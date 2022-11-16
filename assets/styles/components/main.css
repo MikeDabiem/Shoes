@@ -4,11 +4,14 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    cursor: url('../../svg/Cursor.svg') pointer;
 }
 
 body {
     background: #F5F5F5;
+}
+
+a, button, input, label {
+    cursor: url('../../svg/Cursor.svg'), pointer;
 }
 
 h4 {
@@ -79,11 +82,7 @@ h4 {
     transition: all .5s;
 }
 
-.pagination__item:hover {
-    background: #C0BCBA;
-    color: #fff;
-}
-
+.pagination__item:hover,
 .pagination__item.selected {
     background: #FE7427;
     color: #fff;

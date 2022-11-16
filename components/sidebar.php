@@ -6,15 +6,15 @@
             <h4 class="filter__choosed-title">You choosed</h4>
             <div class="choosed__item">
                 <span class="choosed__item-text">Men</span>
-                <button class="choosed__item-x">&#128937;</button>
+                <button class="choosed__item-x"><img src="../assets/svg/close.svg" alt="close"></button>
             </div>
             <div class="choosed__item">
                 <span class="choosed__item-text">Sport shoes</span>
-                <button class="choosed__item-x">&#128937;</button>
+                <button class="choosed__item-x"><img src="../assets/svg/close.svg" alt="close"></button>
             </div>
             <div class="choosed__item">
                 <span class="choosed__item-text">Sport shoes</span>
-                <button class="choosed__item-x">&#128937;</button>
+                <button class="choosed__item-x"><img src="../assets/svg/close.svg" alt="close"></button>
             </div>
         </div>
     </section>
