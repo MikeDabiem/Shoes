@@ -108,6 +108,7 @@
     inset: 0;
     visibility: visible;
     transition: all .5s;
+    mask-image: url(../../svg/heartred.svg);
     -webkit-mask-image: url(../../svg/heartred.svg);
 }
 
