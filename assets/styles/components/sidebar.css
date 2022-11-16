@@ -233,11 +233,8 @@ label.option-label {
     color: #ACACAC;
     transition: all .5s;
 }
-<<<<<<< HEAD
 
 .option:hover label.option-label,
-=======
->>>>>>> b9d54ebafb1b6b0d58a8799693e719c7c2594b40
 label.option-label.checked {
     color: #423C3C;
 }

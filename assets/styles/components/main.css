@@ -82,11 +82,7 @@ h4 {
     transition: all .5s;
 }
 
-<<<<<<< HEAD
-.pagination__item:hover,
-=======
 button.pagination__item:hover,
->>>>>>> b9d54ebafb1b6b0d58a8799693e719c7c2594b40
 .pagination__item.selected {
     background: #FE7427;
     color: #fff;
