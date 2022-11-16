@@ -82,19 +82,21 @@ h4 {
     transition: all .5s;
 }
 
+<<<<<<< HEAD
 .pagination__item:hover,
+=======
+button.pagination__item:hover,
+>>>>>>> b9d54ebafb1b6b0d58a8799693e719c7c2594b40
 .pagination__item.selected {
     background: #FE7427;
     color: #fff;
 }
 
-@media screen and (max-width: 719px) {
-    .showcase__items-item {
-        width: 166px;
-        height: 269px;
-        padding: 11px 10px;
-        border-radius: 8px;
-    }
+.dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
 }
 
 @media screen and (max-width: 610px) {
@@ -104,6 +106,8 @@ h4 {
 
     .catalog.active {
         position: relative;
+        max-height: 100vh;
+        overflow: hidden;
     }
 
     .catalog::after {
