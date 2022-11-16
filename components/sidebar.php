@@ -20,8 +20,8 @@
     </section>
     <section class="catalog__filter-pricing">
         <h4 class="pricing__title">Pricing</h4>
-        <input type="text" class="pricing__min" value="$80">
-        <input type="text" class="pricing__max" value="$300">
+        <input type="text" class="pricing__min" value="$80" readonly>
+        <input type="text" class="pricing__max" value="$300" readonly>
         <div class="pricing__range">
             <input type="range" min="0" value="80" max="500" id="pricing__range-min">
             <input type="range" min="0" value="300" max="500" id="pricing__range-max">
