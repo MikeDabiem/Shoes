@@ -79,23 +79,17 @@ h4 {
     transition: all .5s;
 }
 
-.pagination__item:hover {
-    background: #C0BCBA;
-    color: #fff;
-}
-
+button.pagination__item:hover,
 .pagination__item.selected {
     background: #FE7427;
     color: #fff;
 }
 
-@media screen and (max-width: 719px) {
-    .showcase__items-item {
-        width: 166px;
-        height: 269px;
-        padding: 11px 10px;
-        border-radius: 8px;
-    }
+.dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
 }
 
 @media screen and (max-width: 610px) {
@@ -105,6 +99,8 @@ h4 {
 
     .catalog.active {
         position: relative;
+        max-height: 100vh;
+        overflow: hidden;
     }
 
     .catalog::after {

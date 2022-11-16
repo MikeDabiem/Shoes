@@ -1,6 +1,8 @@
 .showcase__items-item {
-    width: 220px;
-    height: 355px;
+    display: flex;
+    flex-direction: column;
+    /* width: 220px; */
+    width: calc((100% - 54px) / 4);
     background: #FFFFFF;
     -webkit-box-shadow: 1px 3px 14px rgba(30, 27, 26, 0.07);
     box-shadow: 1px 3px 14px rgba(30, 27, 26, 0.07);
@@ -11,15 +13,6 @@
     transition: all .3s;
     outline: 1px solid transparent;
     transition: all .5s;
-}
-
-.showcase__items-item:hover {
-    background: #DFDEDE;
-    outline-color: rgba(209, 203, 203, .7);
-}
-
-.showcase__items-item:hover .item__title {
-    color: #53504E;
 }
 
 .item__thumb {
@@ -40,12 +33,13 @@
 }
 
 .item__thumb img {
-    max-width: 115%;
+    width: 115%;
+    max-height: 100%;
+    margin: 0 -14px;
 }
 
 .item__title {
     display: block;
-    min-height: 36px;
     margin-bottom: 13px;
     font-weight: 600;
     font-size: 13px;
@@ -56,6 +50,10 @@
     transition: all .5s;
 }
 
+.item__title:hover {
+    color: #fe7427;
+}
+
 .item__price {
     min-height: 14px;
     font-weight: 700;
@@ -63,6 +61,7 @@
     line-height: 13px;
     color: #21201F;
     margin-bottom: 25px;
+    margin-top: auto;
 }
 
 .item__buttons {
@@ -91,7 +90,8 @@
 }
 
 .item__buttons-view:hover {
-    background: #2C2929;
+    border: 1px solid #fe7427;
+    background: #fe7427;
     color: #fff;
 }
 
@@ -115,7 +115,25 @@
     content: url(../../svg/heartred.svg);
 }
 
+@media screen and (max-width: 1199px) {
+    .showcase__items-item {
+        width: calc((100% - 36px) / 3);
+    }
+}
+
+@media screen and (max-width: 899px) {
+    .showcase__items-item {
+        width: calc(50% - 9px);
+    }
+}
+
 @media screen and (max-width: 719px) {
+    .showcase__items-item {
+        /* width: 166px; */
+        padding: 11px 10px;
+        border-radius: 8px;
+    }
+
     .item__thumb {
         height: 146px;
     }

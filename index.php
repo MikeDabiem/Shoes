@@ -47,7 +47,7 @@
                     <button class="pagination__item">1</button>
                     <button class="pagination__item">2</button>
                     <button class="pagination__item selected">3</button>
-                    <button class="pagination__item dots">...</button>
+                    <div class="pagination__item dots">...</div>
                     <button class="pagination__item">16</button>
                 </div>
             </div>

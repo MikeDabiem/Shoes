@@ -35,14 +35,9 @@
     transition: all .5s;
 }
 
-.sort__select:hover {
-    border-color: #FE7427;
-}
-
+.sort__select:hover,
 .sort__select.active {
     border-color: #FE7427;
-    -webkit-box-shadow: 0 0 2px 0 #FE7427, inset 0 0 2px 0 #FE7427;
-    box-shadow: 0 0 2px 0 #FE7427, inset 0 0 2px 0 #FE7427;
 }
 
 .sort__select::after {
@@ -96,6 +91,7 @@
     transition: all .5s;
 }
 
+.sort__list-item:hover,
 .sort__list-item.selected {
     color: #29282D;
 }
@@ -103,13 +99,10 @@
 .sort__list-item.selected::after {
     content: url(../../svg/check.svg);
     position: absolute;
-    top: 0;
+    top: 2px;
     right: 26px;
 }
 
-.sort__list-item:hover {
-    background: #ebebeb;
-}
 
 @media screen and (max-width: 610px) {
     .sort-wrapper {
