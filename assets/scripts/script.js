@@ -70,35 +70,45 @@ document.addEventListener('DOMContentLoaded', () => {
         rangeWidth();
     });
 
-    const choosed = document.querySelector('.filter__choosed');
+    const choosed = document.querySelector('.choosed__items');
     const choosedArr = [];
     const choosedTitle = document.querySelector('.filter__choosed-title');
     const checkbox = document.querySelectorAll('.checkbox');
-    checkbox.forEach(item => {
-        item.addEventListener('change', () => {
-            choosed.innerHTML = '';
-            if (item.checked) {
-                item.previousElementSibling.classList.add('checked');
-                item.classList.add('checked');
-                choosedArr.push(item.previousElementSibling.innerHTML);
-            } else {
-                item.previousElementSibling.classList.remove('checked');
-                item.classList.remove('checked');
-                choosedArr.splice(choosedArr.indexOf(item.previousElementSibling.innerHTML), 1);
-            }
-            if (choosedArr.length > 0 && !choosedTitle.classList.contains('active')) {
-                choosedTitle.classList.add('active');
-            } else if(choosedArr.length === 0) {
-                choosedTitle.classList.remove('active');
-            }
-            choosedArr.forEach(item => {
-                choosed.insertAdjacentHTML('beforeend',
-                    `<div class="choosed__item">
-                        <span class="choosed__item-text">${item}</span>
-                        <button class="choosed__item-x"><img src="assets/svg/close.svg" alt="close"></button>
-                    </div>`
-                );
-            });
+    function checkboxHandler(chbox) {
+        if (chbox.checked) {
+            chbox.previousElementSibling.classList.add('checked');
+            chbox.classList.add('checked');
+            choosedArr.push(chbox.previousElementSibling.innerHTML);
+        } else {
+            chbox.previousElementSibling.classList.remove('checked');
+            chbox.classList.remove('checked');
+            choosedArr.splice(choosedArr.indexOf(chbox.previousElementSibling.innerHTML), 1);
+        }
+        if (choosedArr.length > 0 && !choosedTitle.classList.contains('active')) {
+            choosedTitle.classList.add('active');
+        } else if (choosedArr.length === 0 && choosedTitle.classList.contains('active')) {
+            choosedTitle.classList.remove('active');
+        }
+        choosed.innerHTML = '';
+        choosedArr.forEach(item => {
+            choosed.insertAdjacentHTML('beforeend',
+                `<div class="choosed__item">
+                    <span class="choosed__item-text">${item}</span>
+                    <button type="button" class="choosed__item-x"><img src="assets/svg/close.svg" alt="close"></button>
+                </div>`
+            );
+        });
+        const delFilter = document.querySelectorAll('.choosed__item-x');
+        delFilter.forEach(xBtn => {
+            xBtn.addEventListener('click', () => {
+                chbox.checked = false;
+                checkboxHandler(chbox);
+            })
+        });
+    }
+    checkbox.forEach(chbox => {
+        chbox.addEventListener('change', () => {
+            checkboxHandler(chbox);
         });
     });
 
