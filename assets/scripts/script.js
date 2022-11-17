@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkbox = document.querySelectorAll('.checkbox');
     checkbox.forEach(item => {
         item.addEventListener('change', () => {
+            choosed.innerHTML = '';
             if (item.checked) {
                 item.previousElementSibling.classList.add('checked');
                 item.classList.add('checked');
