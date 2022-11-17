@@ -72,8 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const choosed = document.querySelector('.choosed__items');
     const choosedArr = [];
-    const customArr = [{name: 'asd', }, {b: 'bnm'}];
-    console.log(customArr.indexOf('bnm'));
     const choosedTitle = document.querySelector('.filter__choosed-title');
     const checkbox = document.querySelectorAll('.checkbox');
     checkbox.forEach(chbox => {
@@ -81,11 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (chbox.checked) {
                 chbox.previousElementSibling.classList.add('checked');
                 chbox.classList.add('checked');
-                choosedArr.push(chbox.previousElementSibling.innerHTML);
+                choosedArr.push({name: chbox.previousElementSibling.innerHTML, id: chbox.id});
             } else {
                 chbox.previousElementSibling.classList.remove('checked');
                 chbox.classList.remove('checked');
-                choosedArr.splice(choosedArr.indexOf(chbox.previousElementSibling.innerHTML), 1);
+                choosedArr.splice(choosedArr.findIndex(el => el.name === chbox.previousElementSibling.innerHTML), 1);
             }
             if (choosedArr.length > 0 && !choosedTitle.classList.contains('active')) {
                 choosedTitle.classList.add('active');
@@ -96,8 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
             choosedArr.forEach(item => {
                 choosed.insertAdjacentHTML('beforeend',
                     `<div class="choosed__item">
-                        <span class="choosed__item-text">${item}</span>
-                        <label for="${chbox.id}" class="choosed__item-x"><img src="assets/svg/close.svg" alt="close"></label>
+                        <span class="choosed__item-text">${item.name}</span>
+                        <label for="${item.id}" class="choosed__item-x"><img src="assets/svg/close.svg" alt="close"></label>
                     </div>`
                 );
             });
