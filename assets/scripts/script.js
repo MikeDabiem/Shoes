@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (choosedArr.length === 0 && choosedTitle.classList.contains('active')) {
                 choosedTitle.classList.remove('active');
             }
-            console.log(choosedArr);
         });
     });
 
