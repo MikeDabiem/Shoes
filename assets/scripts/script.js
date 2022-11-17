@@ -101,6 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const delFilter = document.querySelectorAll('.choosed__item-x');
         delFilter.forEach(xBtn => {
             xBtn.addEventListener('click', () => {
+                console.log(xBtn.previousElementSibling.innerHTML);
+                console.log(chbox.previousElementSibling.innerHTML);
                 chbox.checked = false;
                 checkboxHandler(chbox);
             })
