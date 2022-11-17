@@ -1,7 +1,7 @@
 <form class="catalog__filter">
     <section class="catalog__filter-header">
         <h2 class="filter__title">Filter</h2>
-        <button type="reset" class="filter__clear-btn">Clear Filter</button>
+        <button class="filter__clear-btn">Clear Filter</button>
         <div class="filter__choosed">
             <h4 class="filter__choosed-title">You choosed</h4>
             <div class="choosed__items"></div>
