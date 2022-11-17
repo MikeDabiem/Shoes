@@ -72,45 +72,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const choosed = document.querySelector('.choosed__items');
     const choosedArr = [];
+    const customArr = [{name: 'asd', }, {b: 'bnm'}];
+    console.log(customArr.indexOf('bnm'));
     const choosedTitle = document.querySelector('.filter__choosed-title');
     const checkbox = document.querySelectorAll('.checkbox');
-    function checkboxHandler(chbox) {
-        if (chbox.checked) {
-            chbox.previousElementSibling.classList.add('checked');
-            chbox.classList.add('checked');
-            choosedArr.push(chbox.previousElementSibling.innerHTML);
-        } else {
-            chbox.previousElementSibling.classList.remove('checked');
-            chbox.classList.remove('checked');
-            choosedArr.splice(choosedArr.indexOf(chbox.previousElementSibling.innerHTML), 1);
-        }
-        if (choosedArr.length > 0 && !choosedTitle.classList.contains('active')) {
-            choosedTitle.classList.add('active');
-        } else if (choosedArr.length === 0 && choosedTitle.classList.contains('active')) {
-            choosedTitle.classList.remove('active');
-        }
-        choosed.innerHTML = '';
-        choosedArr.forEach(item => {
-            choosed.insertAdjacentHTML('beforeend',
-                `<div class="choosed__item">
-                    <span class="choosed__item-text">${item}</span>
-                    <button type="button" class="choosed__item-x"><img src="assets/svg/close.svg" alt="close"></button>
-                </div>`
-            );
-        });
-        const delFilter = document.querySelectorAll('.choosed__item-x');
-        delFilter.forEach(xBtn => {
-            xBtn.addEventListener('click', () => {
-                console.log(xBtn.previousElementSibling.innerHTML);
-                console.log(chbox.previousElementSibling.innerHTML);
-                chbox.checked = false;
-                checkboxHandler(chbox);
-            })
-        });
-    }
     checkbox.forEach(chbox => {
         chbox.addEventListener('change', () => {
-            checkboxHandler(chbox);
+            if (chbox.checked) {
+                chbox.previousElementSibling.classList.add('checked');
+                chbox.classList.add('checked');
+                choosedArr.push(chbox.previousElementSibling.innerHTML);
+            } else {
+                chbox.previousElementSibling.classList.remove('checked');
+                chbox.classList.remove('checked');
+                choosedArr.splice(choosedArr.indexOf(chbox.previousElementSibling.innerHTML), 1);
+            }
+            if (choosedArr.length > 0 && !choosedTitle.classList.contains('active')) {
+                choosedTitle.classList.add('active');
+            } else if (choosedArr.length === 0 && choosedTitle.classList.contains('active')) {
+                choosedTitle.classList.remove('active');
+            }
+            choosed.innerHTML = '';
+            choosedArr.forEach(item => {
+                choosed.insertAdjacentHTML('beforeend',
+                    `<div class="choosed__item">
+                        <span class="choosed__item-text">${item}</span>
+                        <label for="${chbox.id}" class="choosed__item-x"><img src="assets/svg/close.svg" alt="close"></label>
+                    </div>`
+                );
+            });
         });
     });
 
