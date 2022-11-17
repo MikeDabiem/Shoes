@@ -80,9 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 chbox.previousElementSibling.classList.add('checked');
                 chbox.classList.add('checked');
                 choosedArr.push({name: chbox.previousElementSibling.innerHTML, id: chbox.id});
+                choosed.insertAdjacentHTML('beforeend',
+                    `<div class="choosed__item">
+                        <span class="choosed__item-text">${choosedArr[choosedArr.length - 1].name}</span>
+                        <label for="${choosedArr[choosedArr.length - 1].id}" class="choosed__item-x"><img src="assets/svg/close.svg" alt="close"></label>
+                    </div>`
+                );
             } else {
                 chbox.previousElementSibling.classList.remove('checked');
                 chbox.classList.remove('checked');
+                choosed.childNodes[choosedArr.findIndex(el => el.name === chbox.previousElementSibling.innerHTML)].remove();
                 choosedArr.splice(choosedArr.findIndex(el => el.name === chbox.previousElementSibling.innerHTML), 1);
             }
             if (choosedArr.length > 0 && !choosedTitle.classList.contains('active')) {
@@ -90,15 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (choosedArr.length === 0 && choosedTitle.classList.contains('active')) {
                 choosedTitle.classList.remove('active');
             }
-            choosed.innerHTML = '';
-            choosedArr.forEach(item => {
-                choosed.insertAdjacentHTML('beforeend',
-                    `<div class="choosed__item">
-                        <span class="choosed__item-text">${item.name}</span>
-                        <label for="${item.id}" class="choosed__item-x"><img src="assets/svg/close.svg" alt="close"></label>
-                    </div>`
-                );
-            });
+            console.log(choosedArr);
         });
     });
 

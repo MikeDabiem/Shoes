@@ -62,11 +62,16 @@
 }
 
 .filter__choosed-title {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    margin-bottom: 0;
+    transition: all .5s;
 }
 
 .filter__choosed-title.active {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    margin-bottom: 17px;
 }
 
 .choosed__item {
@@ -82,6 +87,15 @@
     padding: 2px 7px 2px 9px;
     margin-bottom: 5px;
     margin-right: 4px;
+    animation: appear .5s linear 0s;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
 }
 
 .choosed__item-x {
