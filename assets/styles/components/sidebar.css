@@ -61,6 +61,14 @@
     padding-bottom: 9px;
 }
 
+.filter__choosed-title {
+    display: none;
+}
+
+.filter__choosed-title.active {
+    display: block;
+}
+
 .choosed__item {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;

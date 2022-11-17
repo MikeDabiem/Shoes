@@ -70,16 +70,34 @@ document.addEventListener('DOMContentLoaded', () => {
         rangeWidth();
     });
 
+    const choosed = document.querySelector('.filter__choosed');
+    const choosedArr = [];
+    const choosedTitle = document.querySelector('.filter__choosed-title');
     const checkbox = document.querySelectorAll('.checkbox');
     checkbox.forEach(item => {
         item.addEventListener('change', () => {
             if (item.checked) {
                 item.previousElementSibling.classList.add('checked');
                 item.classList.add('checked');
+                choosedArr.push(item.previousElementSibling.innerHTML);
             } else {
                 item.previousElementSibling.classList.remove('checked');
                 item.classList.remove('checked');
+                choosedArr.splice(choosedArr.indexOf(item.previousElementSibling.innerHTML), 1);
             }
+            if (choosedArr.length > 0 && !choosedTitle.classList.contains('active')) {
+                choosedTitle.classList.add('active');
+            } else if(choosedArr.length === 0) {
+                choosedTitle.classList.remove('active');
+            }
+            choosedArr.forEach(item => {
+                choosed.insertAdjacentHTML('beforeend',
+                    `<div class="choosed__item">
+                        <span class="choosed__item-text">${item}</span>
+                        <button class="choosed__item-x"><img src="assets/svg/close.svg" alt="close"></button>
+                    </div>`
+                );
+            });
         });
     });
 
