@@ -13,34 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     rangeMin.max = rangeMax.value;
     rangeMax.min = rangeMin.value;
 
-    pricingFilter.addEventListener('change', (e) => {
-        if (priceMin.value === '$') {
-            priceMin.value = '$' + 0;
-        }
-        if (priceMax.value === '$') {
-            priceMax.value = '$' + 0;
-        }
-
-        if (e.target) {
-            if (e.target.classList.contains('pricing__min')) {
-                if (priceMin.value > priceMax.value) {
-                    priceMin.value = '$' + (priceMax.value.slice(1) - 1);
-                }
-                rangeMin.value = priceMin.value.slice(1);
-                rangeMax.min = rangeMin.value;
-                rangeWidth();
-            }
-            if (e.target.classList.contains('pricing__max')) {
-                if (priceMax.value < priceMin.value) {
-                    priceMax.value = '$' + (Number(priceMin.value.slice(1)) + 1);
-                }
-                rangeMax.value = priceMax.value.slice(1);
-                rangeMin.max = rangeMax.value;
-                rangeWidth();
-            }
-        }
-    });
-
     pricingFilter.addEventListener('input', (e) => {
         if (e.target) {
             if (e.target.classList.contains('pricing__min') && e.target.value === '' || e.target.classList.contains('pricing__max') && e.target.value === '') {
@@ -86,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         <label for="${choosedArr[choosedArr.length - 1].id}" class="choosed__item-x"><img src="assets/svg/close.svg" alt="close"></label>
                     </div>`
                 );
-            } else {
-                chbox.previousElementSibling.classList.remove('checked');
-                chbox.classList.remove('checked');
-                choosed.childNodes[choosedArr.findIndex(el => el.name === chbox.previousElementSibling.innerHTML)].remove();
-                choosedArr.splice(choosedArr.findIndex(el => el.name === chbox.previousElementSibling.innerHTML), 1);
+            } else if (chbox.classList.contains('checked')) {
+                    choosed.childNodes[choosedArr.findIndex(el => el.name === chbox.previousElementSibling.innerHTML)].remove();
+                    chbox.previousElementSibling.classList.remove('checked');
+                    chbox.classList.remove('checked');
+                    choosedArr.splice(choosedArr.findIndex(el => el.name === chbox.previousElementSibling.innerHTML), 1);
             }
             if (choosedArr.length > 0 && !choosedTitle.classList.contains('active')) {
                 choosedTitle.classList.add('active');
@@ -183,5 +155,40 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             e.target.classList.add('selected');
         }
+    });
+
+    const clearBtn = document.querySelector('.filter__clear-btn');
+    const filterForm = document.querySelector('.catalog__filter');
+    function selectedRemover(item) {
+        if (item.classList.contains('selected')) {
+            item.classList.remove('selected');
+        }
+    }
+    clearBtn.addEventListener('click', e => {
+        e.preventDefault();
+
+        filterForm.reset();
+
+        rangeWidth();
+        rangeMin.max = rangeMax.value;
+        rangeMax.min = rangeMin.value;
+
+        checkbox.forEach(chbox => {
+            chbox.dispatchEvent(new Event('change'));
+        });
+
+        sizeStdBtn.forEach(item => {
+            selectedRemover(item);
+        });
+        sizeStdBtn[0].classList.add('selected');
+
+        const sizeOptions = document.querySelectorAll('.size__option');
+        sizeOptions.forEach(item => {
+            selectedRemover(item);
+        });
+
+        labelsOption.forEach(item => {
+            selectedRemover(item);
+        });
     });
 });

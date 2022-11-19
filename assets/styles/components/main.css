@@ -55,9 +55,6 @@ h4 {
     flex-wrap: wrap;
     gap: 18px;
     margin-top: 21px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
 }
 
 .catalog__pagination {
