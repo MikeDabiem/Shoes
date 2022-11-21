@@ -159,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const clearBtn = document.querySelector('.filter__clear-btn');
     const filterForm = document.querySelector('.catalog__filter');
+    const sizeOptions = document.querySelectorAll('.size__option');
     function selectedRemover(item) {
         if (item.classList.contains('selected')) {
             item.classList.remove('selected');
@@ -182,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         sizeStdBtn[0].classList.add('selected');
 
-        const sizeOptions = document.querySelectorAll('.size__option');
         sizeOptions.forEach(item => {
             selectedRemover(item);
         });
